@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sword.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Firebals/fireball_0.png" type="Texture" id=2]
+
+[sub_resource type="AnimatedTexture" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 5 )
+
+[node name="Sword" type="Area2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.416667, 0.71875 )
+texture = ExtResource( 2 )
+normal_map = SubResource( 1 )
+region_enabled = true
+region_rect = Rect2( 272, 272, 48, 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="body_entered" from="." to="." method="_on_Sword_body_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GroundTileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://WorldComplete.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
+
+[node name="World2" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 262165, 6, 0, 327700, 14, 0, 327701, 15, 0, 327702, 15, 0, 458769, 15, 0, 458774, 16, 0, 458777, 9, 0, 524302, 15, 0, 524307, 15, 0, 589838, 11, 0, 589846, 16, 0, 589848, 6, 0, 589852, 4, 0, 655369, 4, 0, 655372, 15, 0, 655373, 15, 0, 655374, 11, 0, 655375, 15, 0, 655376, 15, 0, 655377, 15, 0, 655378, 15, 0, 655379, 15, 0, 655380, 15, 0, 655381, 15, 0, 655382, 15, 0, 655383, 15, 0, 655384, 15, 0, 655385, 15, 0, 655386, 15, 0, 655387, 15, 0, 655388, 15, 0, 655389, 15, 0, 655390, 15, 0, 655391, 15, 0, 720905, 14, 0, 720906, 536870926, 0, 720908, 11, 0, 720909, 11, 0, 720910, 11, 0, 720911, 11, 0, 720912, 11, 0, 720913, 11, 0, 720914, 11, 0, 786437, 5, 0, 786444, 11, 0, 786445, 11, 0, 786446, 11, 0, 786447, 11, 0, 786448, 11, 0, 786449, 11, 0, 786450, 11, 0, 851972, 14, 0, 851973, 15, 0, 851974, 15, 0, 851975, 15, 0, 851976, 536870926, 0, 917504, 23, 0, 917507, 536870927, 0, 983040, 14, 0, 983041, 15, 0, 983042, 536870927, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 45.2357, 459.605 )
+
+[node name="WorldComplete" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1613.51, 171.678 )
+world_scene = "res://World.tscn"
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 243.983, 337.584 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 698.785, 80.1924 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 911.103, 236.296 )

@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://StartMenu.gd" type="Script" id=1]
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.651
+margin_top = 4.94803
+margin_right = 3.651
+margin_bottom = 4.948
+
+[node name="Title" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 454.0
+margin_top = 237.0
+margin_right = 570.0
+margin_bottom = 323.0
+
+[node name="Label" type="Label" parent="CenterContainer/Title"]
+margin_right = 116.0
+margin_bottom = 14.0
+text = "TINY COMMANDO"
+
+[node name="StartButton" type="Button" parent="CenterContainer/Title"]
+margin_top = 18.0
+margin_right = 116.0
+margin_bottom = 38.0
+text = "Start Game"
+
+[node name="howToPlay" type="Button" parent="CenterContainer/Title"]
+margin_top = 42.0
+margin_right = 116.0
+margin_bottom = 62.0
+text = "How To Play"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/Title"]
+margin_top = 66.0
+margin_right = 116.0
+margin_bottom = 86.0
+text = "Quit"
+[connection signal="pressed" from="CenterContainer/Title/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CenterContainer/Title/howToPlay" to="." method="_on_howToPlay_pressed"]
+[connection signal="pressed" from="CenterContainer/Title/QuitButton" to="." method="_on_QuitButton_pressed"]

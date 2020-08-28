@@ -1,0 +1,65 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Enemy/walk/go_1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Enemy/walk/go_2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Enemy/walk/go_3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Enemy/walk/go_4.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Enemy/walk/go_5.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Enemy/walk/go_6.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Enemy/walk/go_7.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Enemy/walk/go_8.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Enemy/die/die_1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Enemy/die/die_2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Enemy/die/die_3.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Enemy/die/die_4.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Enemy/die/die_5.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Enemy/die/die_6.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Enemy/die/die_7.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Enemy/die/die_8.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Die",
+"speed": 6.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16.3791, 32.0931 )
+
+[node name="Enemy" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -15.0523, 0 )
+scale = Vector2( 0.225406, 0.211918 )
+frames = SubResource( 1 )
+animation = "Walk"
+centered = false
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 14.8634, 44.107 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( 31, 51.765 )
+enabled = true
+cast_to = Vector2( 0, 26 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.3
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
